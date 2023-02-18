@@ -5,6 +5,7 @@ Created on Sep 16, 2010
 Update  on 2017-05-18
 Author: Peter Harrington/羊三/小瑶
 GitHub: https://github.com/apachecn/AiLearning
+https://github.com/apachecn/ailearning/blob/master/docs/ml/2.md
 '''
 from __future__ import print_function
 from numpy import *
@@ -12,7 +13,8 @@ from numpy import *
 import operator
 from os import listdir
 from collections import Counter
-
+import matplotlib
+import matplotlib.pyplot as plt
 
 def createDataSet():
     """
@@ -291,8 +293,14 @@ def handwritingClassTest():
     print("\nthe total number of errors is: %d" % errorCount)
     print("\nthe total error rate is: %f" % (errorCount / float(mTest)))
 
-
+def printDataImg():
+    datingDataMat, datingLabels = file2matrix('data/2.KNN/datingTestSet2.txt')  # load data setfrom file
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0*array(datingLabels), 15.0*array(datingLabels))
+    plt.show()
 if __name__ == '__main__':
     # test1()
     # datingClassTest()
-    handwritingClassTest()
+    printDataImg()
+    #handwritingClassTest()
