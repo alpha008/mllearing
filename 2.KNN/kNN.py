@@ -170,8 +170,9 @@ def file2matrix(filename):
     fr = open(filename)
     # 获得文件中的数据行的行数
     numberOfLines = len(fr.readlines())
+    print(numberOfLines)
     # 生成对应的空矩阵
-    # 例如: zeros(2，3)就是生成一个 2*3的矩阵，各个位置上全是 0 
+    # 例如: zeros(2，3)就是生成一个 2*3的矩阵，各个位置上全是 0   zeros 初始化一个矩阵
     returnMat = zeros((numberOfLines, 3))  # prepare matrix to return
     classLabelVector = []  # prepare labels return
     fr = open(filename)
@@ -299,8 +300,24 @@ def printDataImg():
     ax = fig.add_subplot(111)
     ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0*array(datingLabels), 15.0*array(datingLabels))
     plt.show()
+
+def createDataSet():
+    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
+    labels = ['A', 'A', 'B', 'B']
+    return group, labels
+def test():
+    group, labels = createDataSet()
+    print(str(group))
+    print(str(labels))
+"""
 if __name__ == '__main__':
-    # test1()
-    # datingClassTest()
-    printDataImg()
+    test1()
+     #datingClassTest()
+    # printDataImg()
     #handwritingClassTest()
+"""
+if __name__ == '__main__':
+    test()
+    printDataImg()
+
+
