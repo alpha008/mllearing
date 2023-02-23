@@ -9,6 +9,7 @@ https://github.com/apachecn/ailearning/blob/master/docs/ml/2.md
 '''
 from __future__ import print_function
 from numpy import *
+import numpy as np
 # 导入科学计算包numpy和运算符模块operator
 import operator
 from os import listdir
@@ -184,10 +185,13 @@ def file2matrix(filename):
         listFromLine = line.split('\t')
         # 每列的属性数据
         returnMat[index, :] = listFromLine[0:3]
+        print(index, listFromLine)
         # 每列的类别数据，就是 label 标签数据
         classLabelVector.append(int(listFromLine[-1]))
         index += 1
     # 返回数据矩阵returnMat和对应的类别classLabelVector
+    np.set_printoptions(suppress=True)
+    print(returnMat[0:3])
     return returnMat, classLabelVector
 
 
