@@ -3,17 +3,11 @@ import  tensorflow as tf
 import  numpy as np
 from    tensorflow import keras
 
-
 # In[1]:
-
-
 tf.random.set_seed(22)
 np.random.seed(22)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 assert tf.__version__.startswith('2.')
-
-
-
 
 (x_train, y_train), (x_test, y_test) = keras.datasets.fashion_mnist.load_data()
 x_train, x_test = x_train.astype(np.float32)/255., x_test.astype(np.float32)/255.
@@ -26,11 +20,8 @@ y_test_ohe = tf.one_hot(y_test, depth=10).numpy()
 
 # In[2]:
 
-
 print(x_train.shape, y_train.shape)
 print(x_test.shape, y_test.shape)
-
-
 
 # 3x3 convolution
 def conv3x3(channels, stride=1, kernel=(3, 3)):

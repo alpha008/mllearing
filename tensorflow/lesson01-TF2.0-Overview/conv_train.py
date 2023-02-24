@@ -8,7 +8,6 @@ from tensorflow.keras import datasets, layers, models, optimizers, metrics
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # or any {'0', '1', '2'}
 
-
 model = tf.keras.Sequential([
     layers.Reshape(
         target_shape=[28, 28, 1],
@@ -26,7 +25,6 @@ compute_loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 compute_accuracy = tf.keras.metrics.SparseCategoricalAccuracy()
 optimizer = optimizers.SGD(learning_rate=0.01, momentum=0.5)
 
-
 def mnist_datasets():
     (x_train, y_train), (x_test, y_test) = datasets.mnist.load_data()
     # Numpy defaults to dtype=float64; TF defaults to float32. Stick with float32.
@@ -36,11 +34,9 @@ def mnist_datasets():
     test_dataset = tf.data.Dataset.from_tensor_slices((x_test, y_test))
     return train_dataset, test_dataset
 
-
 train_ds, test_ds = mnist_datasets()
 train_ds = train_ds.shuffle(60000).batch(100)
 test_ds = test_ds.batch(100)
-
 
 def train_step(model, optimizer, images, labels):
 
