@@ -3,9 +3,6 @@ import  tensorflow as tf
 import timeit
 
 
-
-
-
 cell = tf.keras.layers.LSTMCell(10)
 
 
@@ -19,8 +16,6 @@ def fn(input, state):
     """
 
     return cell(input, state)
-
-
 
 input = tf.zeros([10, 10])
 state = [tf.zeros([10, 10])] * 2
