@@ -9,6 +9,4 @@ Let's implement a linear regressor with tf.keras.layers.Layer
 
 # HowTO
 
-```
 python main.py
-```
